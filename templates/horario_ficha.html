@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="static/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+  <form action="" method="post">
+    
+    <label for="documento">Número de la ficha</label>
+    <input type="text" name="ficha" list="fichas">
+    <datalist id="fichas">
+      {% for ficha in listado_fichas %}
+      <option value="{{ficha}}">{{ficha}}</option>
+      {% endfor %}
+    </datalist>
+    <input type="submit" value="Buscar">
+  </form>
+  <div class="row p-4">
+    <div class="col-6">
+      {% if horario_f %}
+      <table class="table table-striped datos table-bordered">
+        <thead>
+          <tr>
+            <th>Ambiente</th>
+            <th></th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="6" style="vertical-align : middle;text-align:center; font-weight: bold;">{{horario_f['horario']['lunes']['6-7'][0]['6-7L']}}</td>
+            <th>6:00 - 7:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['6-7'][0] %}
+              {{horario_f['horario']['lunes']['6-7'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['6-7'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['6-7'][0] %}
+              {{horario_f['horario']['martes']['6-7'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['6-7'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['6-7'][0] %}
+              {{horario_f['horario']['miercoles']['6-7'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['6-7'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['6-7'][0] %}
+              {{horario_f['horario']['jueves']['6-7'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['6-7'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['6-7'][0] %}
+              {{horario_f['horario']['viernes']['6-7'][0]['NC']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['6-7'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['6-8'][0] %}
+              {{horario_f['horario']['sabado']['6-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['6-8'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>7:00 - 8:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['7-8'][0] %}
+              {{horario_f['horario']['lunes']['7-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['7-8'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['7-8'][0] %}
+              {{horario_f['horario']['martes']['7-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['7-8'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['7-8'][0] %}
+              {{horario_f['horario']['miercoles']['7-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['7-8'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['7-8'][0] %}
+              {{horario_f['horario']['jueves']['7-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['7-8'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['7-8'][0] %}
+              {{horario_f['horario']['viernes']['7-8'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['7-8'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['8-9'][0] %}
+              {{horario_f['horario']['sabado']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['8-9'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>8:00 - 9:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['8-9'][0] %}
+              {{horario_f['horario']['lunes']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['8-9'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['8-9'][0] %}
+              {{horario_f['horario']['martes']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['8-9'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['8-9'][0] %}
+              {{horario_f['horario']['miercoles']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['8-9'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['8-9'][0] %}
+              {{horario_f['horario']['jueves']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['8-9'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['8-9'][0] %}
+              {{horario_f['horario']['viernes']['8-9'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['8-9'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['9-10'][0] %}
+              {{horario_f['horario']['sabado']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['9-10'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>9:00 - 10:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['9-10'][0] %}
+              {{horario_f['horario']['lunes']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['9-10'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['9-10'][0] %}
+              {{horario_f['horario']['martes']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['9-10'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['9-10'][0] %}
+              {{horario_f['horario']['miercoles']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['9-10'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['9-10'][0] %}
+              {{horario_f['horario']['jueves']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['9-10'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['9-10'][0] %}
+              {{horario_f['horario']['viernes']['9-10'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['9-10'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['10-11'][0] %}
+              {{horario_f['horario']['sabado']['10-11'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['sabado']['10-11'][0]['10-11S']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['10-11'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>10:00 - 11:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['10-11'][0] %}
+              {{horario_f['horario']['lunes']['10-11'][0]['NC']}}            
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['10-11'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['10-11'][0] %}
+              {{horario_f['horario']['martes']['10-11'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['10-11'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['10-11'][0] %}
+              {{horario_f['horario']['miercoles']['10-11'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['10-11'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['10-11'][0] %}
+              {{horario_f['horario']['jueves']['10-11'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['10-11'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['10-11'][0] %}
+              {{horario_f['horario']['viernes']['10-11'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['10-11'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['11-12'][0] %}
+              {{horario_f['horario']['sabado']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['11-12'][0]['INSTRUCTOR']}} {%
+              endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>11:00 - 12:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['11-12'][0] %}
+              {{horario_f['horario']['lunes']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['11-12'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['11-12'][0] %}
+              {{horario_f['horario']['martes']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['11-12'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['11-12'][0] %}
+              {{horario_f['horario']['miercoles']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['11-12'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['11-12'][0] %}
+              {{horario_f['horario']['jueves']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['11-12'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['11-12'][0] %}
+              {{horario_f['horario']['viernes']['11-12'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['11-12'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['12-13'][0] %}
+              {{horario_f['horario']['sabado']['12-13'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['12-13'][0]['INSTRUCTOR']}}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <div class="col-6">
+      {% if horario_f %}
+      <table class="table table-striped datos table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>12:00 - 13:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['12-13'][0] %}
+              {{horario_f['horario']['lunes']['12-13'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['12-13'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['12-13'][0] %}
+              {{horario_f['horario']['martes']['12-13'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['12-13'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['12-13'][0] %}
+              {{horario_f['horario']['miercoles']['12-13'][0]['NC']}}              
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['12-13'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['12-13'][0] %}
+              {{horario_f['horario']['jueves']['12-13'][0]['NC']}}             
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['12-13'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['12-13'][0] %}
+              {{horario_f['horario']['viernes']['12-13'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['12-13'][0]['12-13V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['12-13'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['sabado']['13-14'][0] %}
+              {{horario_f['horario']['sabado']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['sabado']['13-14'][0]['13-14S']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['sabado']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>13:00 - 14:00</th>
+            <td>
+              {% if horario_f['horario']['lunes']['13-14'][0] %}
+              {{horario_f['horario']['lunes']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['13-14'][0]['13-14L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['13-14'][0] %}
+              {{horario_f['horario']['martes']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['13-14'][0]['13-14M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['13-14'][0] %}
+              {{horario_f['horario']['miercoles']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['13-14'][0]['13-14MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['13-14'][0] %}
+              {{horario_f['horario']['jueves']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['13-14'][0]['13-14J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['13-14'][0] %}
+              {{horario_f['horario']['viernes']['13-14'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['13-14'][0]['13-14V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['13-14'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              14:00 - 15:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['14-15'][0] %}
+              {{horario_f['horario']['lunes']['14-15'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['14-15'][0]['14-15L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['14-15'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['14-15'][0] %}
+              {{horario_f['horario']['martes']['14-15'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['14-15'][0]['14-15M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['14-15'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['14-15'][0] %}
+              {{horario_f['horario']['miercoles']['14-15'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['14-15'][0]['14-15MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['14-15'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['14-15'][0] %}
+              {{horario_f['horario']['jueves']['14-15'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['14-15'][0]['14-15J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['14-15'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['14-15'][0] %}
+              {{horario_f['horario']['viernes']['14-15'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['14-15'][0]['14-15V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['14-15'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              15:00 - 16:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['15-16'][0] %}
+              {{horario_f['horario']['lunes']['15-16'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['15-16'][0]['15-16L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['15-16'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['15-16'][0] %}
+              {{horario_f['horario']['martes']['15-16'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['15-16'][0]['15-16M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['15-16'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['15-16'][0] %}
+              {{horario_f['horario']['miercoles']['15-16'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['15-16'][0]['15-16MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['15-16'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['15-16'][0] %}
+              {{horario_f['horario']['jueves']['15-16'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['15-16'][0]['15-16J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['15-16'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['15-16'][0] %}
+              {{horario_f['horario']['viernes']['15-16'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['15-16'][0]['15-16V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['15-16'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              16:00 - 17:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['16-17'][0] %}
+              {{horario_f['horario']['lunes']['16-17'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['16-17'][0]['16-17L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['16-17'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['16-17'][0] %}
+              {{horario_f['horario']['martes']['16-17'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['16-17'][0]['16-17M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['16-17'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['16-17'][0] %}
+              {{horario_f['horario']['miercoles']['16-17'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['16-17'][0]['16-17MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['16-17'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['16-17'][0] %}
+              {{horario_f['horario']['jueves']['16-17'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['16-17'][0]['16-17J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['16-17'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['16-17'][0] %}
+              {{horario_f['horario']['viernes']['16-17'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['16-17'][0]['16-17V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['16-17'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              17:00 - 18:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['17-18'][0] %}
+              {{horario_f['horario']['lunes']['17-18'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['17-18'][0]['17-18L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['17-18'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['17-18'][0] %}
+              {{horario_f['horario']['martes']['17-18'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['17-18'][0]['17-18M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['17-18'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['17-18'][0] %}
+              {{horario_f['horario']['miercoles']['17-18'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['17-18'][0]['17-18MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['17-18'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['17-18'][0] %}
+              {{horario_f['horario']['jueves']['17-18'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['17-18'][0]['17-18J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['17-18'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['17-18'][0] %}
+              {{horario_f['horario']['viernes']['17-18'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['17-18'][0]['17-18V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['17-18'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              18:00 - 19:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['18-19'][0] %}
+              {{horario_f['horario']['lunes']['18-19'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['18-19'][0]['18-19L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['18-19'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['18-19'][0] %}
+              {{horario_f['horario']['martes']['18-19'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['18-19'][0]['18-19M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['18-19'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['18-19'][0] %}
+              {{horario_f['horario']['miercoles']['18-19'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['18-19'][0]['18-19MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['18-19'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['18-19'][0] %}
+              {{horario_f['horario']['jueves']['18-19'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['18-19'][0]['18-19J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['18-19'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['18-19'][0] %}
+              {{horario_f['horario']['viernes']['18-19'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['18-19'][0]['18-19V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['18-19'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              19:00 - 20:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['19-20'][0] %}
+              {{horario_f['horario']['lunes']['19-20'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['19-20'][0]['19-20L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['19-20'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['19-20'][0] %}
+              {{horario_f['horario']['martes']['19-20'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['19-20'][0]['19-20M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['19-20'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['19-20'][0] %}
+              {{horario_f['horario']['miercoles']['19-20'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['19-20'][0]['19-20MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['19-20'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['19-20'][0] %}
+              {{horario_f['horario']['jueves']['19-20'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['19-20'][0]['19-20J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['19-20'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['19-20'][0] %}
+              {{horario_f['horario']['viernes']['19-20'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['19-20'][0]['19-20V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['19-20'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              20:00 - 21:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['20-21'][0] %}
+              {{horario_f['horario']['lunes']['20-21'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['20-21'][0]['20-21L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['20-21'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['20-21'][0] %}
+              {{horario_f['horario']['martes']['20-21'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['20-21'][0]['20-21M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['20-21'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['20-21'][0] %}
+              {{horario_f['horario']['miercoles']['20-21'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['20-21'][0]['20-21MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['20-21'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['20-21'][0] %}
+              {{horario_f['horario']['jueves']['20-21'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['20-21'][0]['20-21J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['20-21'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['20-21'][0] %}
+              {{horario_f['horario']['viernes']['20-21'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['20-21'][0]['20-21V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['20-21'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              21:00 - 22:00
+            </th>
+            <td>
+              {% if horario_f['horario']['lunes']['21-22'][0] %}
+              {{horario_f['horario']['lunes']['21-22'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['lunes']['21-22'][0]['21-22L']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['lunes']['21-22'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['martes']['21-22'][0] %}
+              {{horario_f['horario']['martes']['21-22'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['martes']['21-22'][0]['21-22M']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['martes']['21-22'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['miercoles']['21-22'][0] %}
+              {{horario_f['horario']['miercoles']['21-22'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['miercoles']['21-22'][0]['21-22MI']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['miercoles']['21-22'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['jueves']['21-22'][0] %}
+              {{horario_f['horario']['jueves']['21-22'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['jueves']['21-22'][0]['21-22J']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['jueves']['21-22'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td>
+              {% if horario_f['horario']['viernes']['21-22'][0] %}
+              {{horario_f['horario']['viernes']['21-22'][0]['NC']}}
+              <span>Amb:</span>
+              {{horario_f['horario']['viernes']['21-22'][0]['21-22V']}}
+              <span>Instructor:</span>
+              {{horario_f['horario']['viernes']['21-22'][0]['FICHA']}}
+              {% endif %}
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+  </div>
+  <div class="p-4">
+    {% if horario_f %}
+      {% if horario_f['horario']['titularTrimestre'] %}
+      <div class="alert alert-warning" role="alert">
+        <span>¡Importante!</span>
+        <p>Usted es titular en las fichas:</p>            
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Ficha</th>
+            <th>Programa</th>
+            <th>Trimestre</th>
+          </tr>
+        </thead>
+        <tbody>          
+          <tr>
+            <td>{{horario_f['horario']['titularTrimestre']['ficha']}}</td>
+            <td>{{horario_f['horario']['titularTrimestre']['formacion']}}</td>
+            <td>{{horario_f['horario']['titularTrimestre']['trimestre']}}</td>
+          </tr>         
+        </tbody>        
+      </table>
+      {% endif %}
+    {% endif %}
+  </div>
+
+    {% if competencias %}
+    <div class="p-4">
+      <h3>Competencias</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Norma</th>
+            <th>Competencia</th>
+            <th>Palabra clave</th>
+            <th>N° RAP</th>
+            <th>Resultados de aprendizaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set competencias_len = competencias['norma']|length %}
+          {% for i in range(0, competencias_len) %}
+          <tr>
+            <td>{{competencias['norma'][i]}}</td>
+            <td>{{competencias['competencia'][i]}}</td>
+            <td>{{competencias['frase'][i]}}</td>
+            <td>{{competencias['n_rap'][i]}}</td>
+            <td>{{competencias['resultados_ap'][i]}}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>      
+    </div>
+    {% endif %}
+
+</body>
+
+</html>
