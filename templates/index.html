@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="" method="post">
-  <label for="documento">Documento del instructor</label>    
+<form class="p-4" action="" method="post">
+  <label for="documento">Instructor</label>    
   <input type="text" name="documento" list="instructores">
   <datalist id="instructores">
     {% for instructor in listado_instructores %}
     <option value="{{instructor}}">{{instructor}}</option>
     {% endfor %}
   </datalist>
-  <input type="submit" value="Buscar">
+  <input class="btn btn-success" type="submit" value="Buscar">
 </form>
 <div class="row p-4">
   <div class="col-6">
@@ -939,9 +939,9 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Palabra clave</th>
           <th>Norma</th>
           <th>Competencia</th>
-          <th>Palabra clave</th>
           <th>N° RAP</th>
           <th>Resultados de aprendizaje</th>
         </tr>
@@ -950,9 +950,9 @@
         {% set competencias_len = competencias['norma']|length %}
         {% for i in range(0, competencias_len) %}
         <tr>
+          <td>{{competencias['frase'][i]}}</td>
           <td>{{competencias['norma'][i]}}</td>
           <td>{{competencias['competencia'][i]}}</td>
-          <td>{{competencias['frase'][i]}}</td>
           <td>{{competencias['n_rap'][i]}}</td>
           <td>{{competencias['resultados_ap'][i]}}</td>
 
